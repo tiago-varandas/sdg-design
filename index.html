@@ -212,7 +212,7 @@
 </div>
 </div>
 </section>
-<!-- SDG 06: Clean Water & Sanitation (OPEN BY DEFAULT) -->
+<!-- SDG 06: Clean Water & Sanitation (Open  BY DEFAULT) -->
 <section class="accordion-row sdg-row-expanded group relative bg-sdg-water flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-default" id="sdg-06" onclick="toggleAccordion(this)" style="background-color: #F5F3EE !important; color: #1a1c1c !important;">
 <div class="flex items-center"><span class="font-sdg-number text-sdg-number text-sdg-water opacity-20">06</span><div class="ml-8"><h2 class="font-headline text-display-sm text-sdg-water"><span class="font-extrabold">Clean Water</span> &amp; Sanitation</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase text-on-surface-variant">Sustainable management of water for all</p></div></div>
 <div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4">
@@ -234,7 +234,7 @@
 <p class="font-body text-xs text-secondary line-clamp-2">Optimized for low-bandwidth mobile environments.</p>
 </div>
 <div class="mt-auto flex items-center gap-4">
-<button class="bg-primary text-on-primary font-headline text-[10px] font-bold py-2.5 px-5">Open →</button>
+<button class="bg-primary text-on-primary font-headline text-[10px] font-bold py-2.5 px-5">Open In Stitch →</button>
 </div>
 </div>
 <!-- Card 2 -->
@@ -255,7 +255,7 @@
 <p class="font-body text-xs text-secondary line-clamp-2">Visualizing water scarcity data.</p>
 </div>
 <div class="mt-auto flex items-center gap-4">
-<button class="bg-primary text-on-primary font-headline text-[10px] font-bold py-2.5 px-5">Open →</button>
+<button class="bg-primary text-on-primary font-headline text-[10px] font-bold py-2.5 px-5">Open In Stitch In Stitch →</button>
 </div>
 </div>
 <!-- Contribute Card -->
@@ -449,5 +449,16 @@
             if (content) content.classList.remove('hidden');
         }
     });
+</script>
+        <script>
+async function openInStitch(sdg, name, color) {
+  try { await navigator.clipboard.writeText('SDG ' + sdg + ' DESIGN.md — download from github.com/tiago-varandas/sdg-design'); } catch(e){}
+  const t = document.createElement('div');
+  t.style.cssText = 'position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#0D0D0B;color:#fff;padding:14px 22px;z-index:9999;font-family:sans-serif;font-size:13px;border-top:3px solid ' + color + ';min-width:380px;display:flex;gap:16px;align-items:center;';
+  t.innerHTML = '<div><b>SDG ' + sdg + ' — ' + name + ' copied</b><br><span style="font-size:11px;color:#888;">Paste with ⌘V in Stitch\'s DESIGN.md field</span></div><button onclick="window.open(\'https://stitch.withgoogle.com\',\'_blank\');this.parentNode.remove()" style="background:#fff;color:#000;border:none;padding:6px 12px;font-weight:700;cursor:pointer;">Open Stitch →</button>';
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 5000);
+  setTimeout(() => window.open('https://stitch.withgoogle.com','_blank'), 400);
+}
 </script>
 </body></html>
