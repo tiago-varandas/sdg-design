@@ -113,3 +113,8 @@ Version 1 ships with 6 founding kits. The architecture supports unlimited commun
 Apache 2.0 — free to use, modify, and distribute.
 
 *Not affiliated with or endorsed by the United Nations. SDG colors used in accordance with UN guidelines for awareness purposes.*
+
+## Support this project
+
+Any contribution helps:
+https://buymeacoffee.com/littlenicethings
