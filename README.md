@@ -5,7 +5,7 @@
 
 Browse a goal. Download the system. Generate a product in Stitch. Launch faster.
 
-→ **[sdg.design](https://sdg.design)** · Built for the [Google Stitch Challenge](https://stitch.withgoogle.com)
+→ **[sdg.design](https://sdgdesign.netlify.app/)** · Built for the [Google Stitch Challenge](https://stitch.withgoogle.com)
 
 ---
 
@@ -56,7 +56,7 @@ That difference is the product.
 5. Describe your product and generate
 
 **Option 2 — Download from SDG.design**
-1. Visit [sdg.design](https://sdg.design)
+1. Visit [sdg.design](https://sdgdesign.netlify.app/)
 2. Click any active SDG
 3. Choose a kit variant
 4. Click "Open in Stitch →" — the DESIGN.md copies to your clipboard automatically
