@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>sdg.design | Radical Accordion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;700;800&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#e2e2e2",
+                        "on-primary-fixed-variant": "#474744",
+                        "secondary-fixed": "#e4e2dd",
+                        "sdg-poverty": "#E5243B",
+                        "on-tertiary-fixed": "#1a1c1a",
+                        "on-tertiary-fixed-variant": "#464745",
+                        "on-surface-variant": "#474741",
+                        "on-tertiary-container": "#848481",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "sdg-partnership": "#19486A",
+                        "tertiary-fixed-dim": "#c7c6c3",
+                        "surface-container-high": "#e8e8e8",
+                        "primary-container": "#1c1c19",
+                        "outline": "#787770",
+                        "sdg-energy": "#FCC30B",
+                        "inverse-primary": "#c9c6c2",
+                        "sdg-industry": "#FD6925",
+                        "error": "#ba1a1a",
+                        "tertiary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c1",
+                        "sdg-cities": "#FD9D24",
+                        "sdg-education": "#C5192D",
+                        "on-background": "#1a1c1c",
+                        "inverse-on-surface": "#f0f1f1",
+                        "sdg-peace": "#00689D",
+                        "secondary": "#5f5f5a",
+                        "surface-variant": "#e2e2e2",
+                        "background": "#f9f9f9",
+                        "on-surface": "#1a1c1c",
+                        "on-secondary-fixed-variant": "#474743",
+                        "inverse-surface": "#2f3131",
+                        "on-primary": "#ffffff",
+                        "sdg-hunger": "#DDA63A",
+                        "on-secondary-container": "#5f5f5b",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#000000",
+                        "surface-tint": "#5f5e5b",
+                        "sdg-inequality": "#DD1367",
+                        "surface-dim": "#dadada",
+                        "sdg-consumption": "#BF8B2E",
+                        "sdg-equality": "#FF3A21",
+                        "surface-ink": "#F2F0EB",
+                        "rule-hairline": "#E8E6E1",
+                        "primary-fixed-dim": "#c9c6c2",
+                        "surface-container": "#eeeeee",
+                        "secondary-container": "#dcdad5",
+                        "primary-fixed": "#e5e2de",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c8c7be",
+                        "sdg-ocean": "#0A97D9",
+                        "sdg-climate": "#3F7E44",
+                        "sdg-land": "#56C02B",
+                        "sdg-work": "#A21942",
+                        "sdg-water": "#29BFE0",
+                        "sdg-health": "#4C9B47",
+                        "on-secondary-fixed": "#1b1c19",
+                        "on-primary-container": "#858480",
+                        "on-primary-fixed": "#1c1c19",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#e3e2df",
+                        "tertiary-container": "#1a1c1a",
+                        "surface-container-low": "#f3f3f4",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "spacing": {
+                        "section-gap": "128px",
+                        "hero-pad": "200px",
+                        "gutter-grid": "0px",
+                        "margin-mobile": "24px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Helvetica Neue", "Arial", "sans-serif"],
+                        "body": ["Libre Franklin"],
+                        "display-sm": ["Helvetica Neue", "Arial", "sans-serif"],
+                        "meta-label": ["Libre Franklin"],
+                        "sdg-number": ["Helvetica Neue", "Arial", "sans-serif"],
+                        "display-hero": ["Helvetica Neue", "Arial", "sans-serif"],
+                        "code": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline": ["18px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                        "body": ["14px", {"lineHeight": "1.6", "letterSpacing": "-0.005em", "fontWeight": "400"}],
+                        "display-sm": ["40px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "meta-label": ["10px", {"lineHeight": "1.3", "letterSpacing": "0.1em", "fontWeight": "400"}],
+                        "sdg-number": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.05em", "fontWeight": "700"}],
+                        "display-hero": ["64px", {"lineHeight": "0.95", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "code": ["11px", {"lineHeight": "1.65", "letterSpacing": "0.02em", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Libre Franklin', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .accordion-row { 
+            transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease; 
+            overflow: hidden;
+        }
+        .sdg-row-expanded { height: 600px !important; }
+        .sdg-row-collapsed { height: 140px !important; }
+        * { border-radius: 0 !important; }
+
+        @media (max-width: 768px) {
+            .sdg-row-expanded { height: 500px !important; }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 bg-surface/80 backdrop-blur-md border-b border-rule-hairline">
+<div class="font-headline text-headline font-bold text-primary">sdg.design</div>
+<div class="hidden md:flex gap-10">
+<a class="font-headline text-headline font-medium text-secondary hover:text-primary transition-colors" href="#">Browse</a>
+<a class="font-headline text-headline font-medium text-secondary hover:text-primary transition-colors" href="#">About</a>
+<a class="font-headline text-headline font-medium text-secondary hover:text-primary transition-colors" href="#">GitHub</a>
+</div>
+<button class="bg-primary text-on-primary font-body font-bold py-3 px-6 md:px-8 hover:bg-opacity-80 transition-all cursor-pointer active:opacity-70 text-sm">
+        Submit
+    </button>
+</nav>
+<!-- Hero Section -->
+<header class="pt-32 pb-16 px-margin-mobile md:px-margin-desktop bg-surface border-b border-rule-hairline">
+<div class="max-w-4xl">
+<h1 class="font-display-hero text-display-hero text-primary">Design for what matters</h1>
+<p class="font-body text-lg md:text-xl text-secondary mt-6 leading-relaxed max-w-2xl">
+            17 interconnected objectives designed to serve as a shared blueprint for peace and prosperity.
+        </p>
+</div>
+</header>
+<!-- Main Content: Radical Accordion -->
+<main>
+<!-- SDG 01: No Poverty -->
+<section class="accordion-row sdg-row-collapsed group relative bg-sdg-poverty text-white border-b border-white/10 flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-pointer" onclick="toggleAccordion(this)">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number opacity-20">01</span><div class="ml-8"><h2 class="font-headline text-display-sm"><span class="font-extrabold">No</span> Poverty</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase opacity-80">End poverty in all its forms everywhere</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4 hidden">
+<!-- Cards will go here -->
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-white/40 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-white/10 transition-colors bg-white/5 text-white">
+<span class="material-symbols-outlined text-5xl mb-4">add</span>
+<span class="font-headline font-bold text-lg">Contribute</span>
+<p class="font-body text-xs mt-2 opacity-70 uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+<!-- SDG 02: Zero Hunger -->
+<section class="accordion-row sdg-row-collapsed group relative bg-sdg-hunger text-white border-b border-white/10 flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-pointer" onclick="toggleAccordion(this)">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number opacity-20">02</span><div class="ml-8"><h2 class="font-headline text-display-sm"><span class="font-extrabold">Zero</span> Hunger</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase opacity-80">End hunger, achieve food security</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4 hidden">
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-white/40 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-white/10 transition-colors bg-white/5 text-white">
+<span class="material-symbols-outlined text-5xl mb-4">add</span>
+<span class="font-headline font-bold text-lg">Contribute</span>
+<p class="font-body text-xs mt-2 opacity-70 uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+<!-- SDG 03: Good Health -->
+<section class="accordion-row sdg-row-collapsed group relative bg-sdg-health text-white border-b border-white/10 flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-pointer" onclick="toggleAccordion(this)">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number opacity-20">03</span><div class="ml-8"><h2 class="font-headline text-display-sm"><span class="font-extrabold">Good Health</span> &amp; Well-being</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase opacity-80">Ensure healthy lives for all</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4 hidden">
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-white/40 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-white/10 transition-colors bg-white/5 text-white">
+<span class="material-symbols-outlined text-5xl mb-4">add</span>
+<span class="font-headline font-bold text-lg">Contribute</span>
+<p class="font-body text-xs mt-2 opacity-70 uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+<!-- SDG 04: Quality Education -->
+<section class="accordion-row sdg-row-collapsed group relative bg-sdg-education text-white border-b border-white/10 flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-pointer" onclick="toggleAccordion(this)">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number opacity-20">04</span><div class="ml-8"><h2 class="font-headline text-display-sm"><span class="font-extrabold">Quality</span> Education</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase opacity-80">Ensure inclusive quality education</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4 hidden">
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-white/40 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-white/10 transition-colors bg-white/5 text-white">
+<span class="material-symbols-outlined text-5xl mb-4">add</span>
+<span class="font-headline font-bold text-lg">Contribute</span>
+<p class="font-body text-xs mt-2 opacity-70 uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+<!-- SDG 05: Gender Equality -->
+<section class="accordion-row sdg-row-collapsed group relative bg-sdg-equality text-white border-b border-white/10 flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-pointer" onclick="toggleAccordion(this)">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number opacity-20">05</span><div class="ml-8"><h2 class="font-headline text-display-sm"><span class="font-extrabold">Gender</span> Equality</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase opacity-80">Empower all women and girls</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4 hidden">
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-white/40 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-white/10 transition-colors bg-white/5 text-white">
+<span class="material-symbols-outlined text-5xl mb-4">add</span>
+<span class="font-headline font-bold text-lg">Contribute</span>
+<p class="font-body text-xs mt-2 opacity-70 uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+<!-- SDG 06: Clean Water & Sanitation (OPEN BY DEFAULT) -->
+<section class="accordion-row sdg-row-expanded group relative bg-sdg-water flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-default" id="sdg-06" onclick="toggleAccordion(this)" style="background-color: #F5F3EE !important; color: #1a1c1c !important;">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number text-sdg-water opacity-20">06</span><div class="ml-8"><h2 class="font-headline text-display-sm text-sdg-water"><span class="font-extrabold">Clean Water</span> &amp; Sanitation</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase text-on-surface-variant">Sustainable management of water for all</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4">
+<!-- Card 1 -->
+<div class="min-w-[320px] bg-white p-4 text-primary group/card flex flex-col gap-4 border border-rule-hairline">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-sdg-water text-white flex items-center justify-center font-bold text-sm">AR</div>
+<div class="flex flex-col"><span class="font-headline text-sm font-bold">Amara Reddy</span><span class="font-meta-label text-[10px] uppercase tracking-tighter opacity-60">WaterAid Tech</span></div>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container px-2 py-1">
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="font-headline text-xs font-bold">4.9</span>
+</div>
+</div>
+<img alt="Community Field Monitor Preview" class="w-full h-32 object-cover border border-rule-hairline" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<div>
+<h3 class="font-headline text-lg font-bold mb-1">Community Field Monitor</h3>
+<p class="font-body text-xs text-secondary line-clamp-2">Optimized for low-bandwidth mobile environments.</p>
+</div>
+<div class="mt-auto flex items-center gap-4">
+<button class="bg-primary text-on-primary font-headline text-[10px] font-bold py-2.5 px-5">Open →</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="min-w-[320px] bg-white p-4 text-primary group/card flex flex-col gap-4 border border-rule-hairline">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-sdg-peace text-white flex items-center justify-center font-bold text-sm">LW</div>
+<div class="flex flex-col"><span class="font-headline text-sm font-bold">Liam Wong</span><span class="font-meta-label text-[10px] uppercase tracking-tighter opacity-60">UNICEF WASH</span></div>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container px-2 py-1">
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="font-headline text-xs font-bold">4.7</span>
+</div>
+</div>
+<img alt="Policy Platform" class="w-full h-32 object-cover border border-rule-hairline" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<div>
+<h3 class="font-headline text-lg font-bold mb-1">Policy &amp; Advocacy Platform</h3>
+<p class="font-body text-xs text-secondary line-clamp-2">Visualizing water scarcity data.</p>
+</div>
+<div class="mt-auto flex items-center gap-4">
+<button class="bg-primary text-on-primary font-headline text-[10px] font-bold py-2.5 px-5">Open →</button>
+</div>
+</div>
+<!-- Contribute Card -->
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-primary/30 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-primary/5 transition-colors bg-white/50">
+<span class="material-symbols-outlined text-5xl mb-4 text-primary">add</span>
+<span class="font-headline font-bold text-lg text-primary">Contribute</span>
+<p class="font-body text-xs mt-2 text-secondary uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+<!-- SDG 07: Affordable Energy -->
+<section class="accordion-row sdg-row-collapsed group relative bg-sdg-energy text-white border-b border-white/10 flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-pointer" onclick="toggleAccordion(this)">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number opacity-20">07</span><div class="ml-8"><h2 class="font-headline text-display-sm"><span class="font-extrabold">Affordable</span> &amp; Clean Energy</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase opacity-80">Access to reliable energy for all</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4 hidden">
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-white/40 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-white/10 transition-colors bg-white/5 text-white">
+<span class="material-symbols-outlined text-5xl mb-4">add</span>
+<span class="font-headline font-bold text-lg">Contribute</span>
+<p class="font-body text-xs mt-2 opacity-70 uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+<!-- SDG 08: Decent Work -->
+<section class="accordion-row sdg-row-collapsed group relative bg-sdg-work text-white border-b border-white/10 flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-pointer" onclick="toggleAccordion(this)">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number opacity-20">08</span><div class="ml-8"><h2 class="font-headline text-display-sm"><span class="font-extrabold">Decent Work</span> &amp; Growth</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase opacity-80">Inclusive economic growth</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4 hidden">
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-white/40 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-white/10 transition-colors bg-white/5 text-white">
+<span class="material-symbols-outlined text-5xl mb-4">add</span>
+<span class="font-headline font-bold text-lg">Contribute</span>
+<p class="font-body text-xs mt-2 opacity-70 uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+<!-- SDG 09: Industry & Innovation -->
+<section class="accordion-row sdg-row-collapsed group relative bg-sdg-industry text-white border-b border-white/10 flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-pointer" onclick="toggleAccordion(this)">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number opacity-20">09</span><div class="ml-8"><h2 class="font-headline text-display-sm"><span class="font-extrabold">Industry &amp;</span> Innovation</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase opacity-80">Foster innovation</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4 hidden">
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-white/40 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-white/10 transition-colors bg-white/5 text-white">
+<span class="material-symbols-outlined text-5xl mb-4">add</span>
+<span class="font-headline font-bold text-lg">Contribute</span>
+<p class="font-body text-xs mt-2 opacity-70 uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+<!-- SDG 10: Reduced Inequalities -->
+<section class="accordion-row sdg-row-collapsed group relative bg-sdg-inequality text-white border-b border-white/10 flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-pointer" onclick="toggleAccordion(this)">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number opacity-20">10</span><div class="ml-8"><h2 class="font-headline text-display-sm"><span class="font-extrabold">Reduced</span> Inequalities</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase opacity-80">Reduce inequality within countries</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4 hidden">
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-white/40 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-white/10 transition-colors bg-white/5 text-white">
+<span class="material-symbols-outlined text-5xl mb-4">add</span>
+<span class="font-headline font-bold text-lg">Contribute</span>
+<p class="font-body text-xs mt-2 opacity-70 uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+<!-- SDG 11: Sustainable Cities -->
+<section class="accordion-row sdg-row-collapsed group relative bg-sdg-cities text-white border-b border-white/10 flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-pointer" onclick="toggleAccordion(this)">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number opacity-20">11</span><div class="ml-8"><h2 class="font-headline text-display-sm"><span class="font-extrabold">Sustainable</span> Cities</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase opacity-80">Make human settlements inclusive</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4 hidden">
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-white/40 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-white/10 transition-colors bg-white/5 text-white">
+<span class="material-symbols-outlined text-5xl mb-4">add</span>
+<span class="font-headline font-bold text-lg">Contribute</span>
+<p class="font-body text-xs mt-2 opacity-70 uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+<!-- SDG 12: Responsible Consumption -->
+<section class="accordion-row sdg-row-collapsed group relative bg-sdg-consumption text-white border-b border-white/10 flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-pointer" onclick="toggleAccordion(this)">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number opacity-20">12</span><div class="ml-8"><h2 class="font-headline text-display-sm"><span class="font-extrabold">Responsible</span> Consumption</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase opacity-80">Ensure sustainable patterns</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4 hidden">
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-white/40 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-white/10 transition-colors bg-white/5 text-white">
+<span class="material-symbols-outlined text-5xl mb-4">add</span>
+<span class="font-headline font-bold text-lg">Contribute</span>
+<p class="font-body text-xs mt-2 opacity-70 uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+<!-- SDG 13: Climate Action -->
+<section class="accordion-row sdg-row-collapsed group relative bg-sdg-climate text-white border-b border-white/10 flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-pointer" onclick="toggleAccordion(this)">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number opacity-20">13</span><div class="ml-8"><h2 class="font-headline text-display-sm"><span class="font-extrabold">Climate</span> Action</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase opacity-80">Urgent action for climate</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4 hidden">
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-white/40 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-white/10 transition-colors bg-white/5 text-white">
+<span class="material-symbols-outlined text-5xl mb-4">add</span>
+<span class="font-headline font-bold text-lg">Contribute</span>
+<p class="font-body text-xs mt-2 opacity-70 uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+<!-- SDG 14: Life Below Water -->
+<section class="accordion-row sdg-row-collapsed group relative bg-sdg-ocean text-white border-b border-white/10 flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-pointer" onclick="toggleAccordion(this)">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number opacity-20">14</span><div class="ml-8"><h2 class="font-headline text-display-sm"><span class="font-extrabold">Life</span> Below Water</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase opacity-80">Conserve oceans and marine resources</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4 hidden">
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-white/40 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-white/10 transition-colors bg-white/5 text-white">
+<span class="material-symbols-outlined text-5xl mb-4">add</span>
+<span class="font-headline font-bold text-lg">Contribute</span>
+<p class="font-body text-xs mt-2 opacity-70 uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+<!-- SDG 15: Life On Land -->
+<section class="accordion-row sdg-row-collapsed group relative bg-sdg-land text-white border-b border-white/10 flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-pointer" onclick="toggleAccordion(this)">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number opacity-20">15</span><div class="ml-8"><h2 class="font-headline text-display-sm"><span class="font-extrabold">Life</span> On Land</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase opacity-80">Protect terrestrial ecosystems</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4 hidden">
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-white/40 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-white/10 transition-colors bg-white/5 text-white">
+<span class="material-symbols-outlined text-5xl mb-4">add</span>
+<span class="font-headline font-bold text-lg">Contribute</span>
+<p class="font-body text-xs mt-2 opacity-70 uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+<!-- SDG 16: Peace and Justice -->
+<section class="accordion-row sdg-row-collapsed group relative bg-sdg-peace text-white border-b border-white/10 flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-pointer" onclick="toggleAccordion(this)">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number opacity-20">16</span><div class="ml-8"><h2 class="font-headline text-display-sm"><span class="font-extrabold">Peace</span> &amp; Justice</h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase opacity-80">Promote peaceful societies</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4 hidden">
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-white/40 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-white/10 transition-colors bg-white/5 text-white">
+<span class="material-symbols-outlined text-5xl mb-4">add</span>
+<span class="font-headline font-bold text-lg">Contribute</span>
+<p class="font-body text-xs mt-2 opacity-70 uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+<!-- SDG 17: Partnerships -->
+<section class="accordion-row sdg-row-collapsed group relative bg-sdg-partnership text-white border-b border-white/10 flex flex-col justify-center px-margin-mobile md:px-margin-desktop cursor-pointer" onclick="toggleAccordion(this)">
+<div class="flex items-center"><span class="font-sdg-number text-sdg-number opacity-20">17</span><div class="ml-8"><h2 class="font-headline text-display-sm"><span class="font-extrabold">Partnerships</span></h2><p class="font-meta-label text-meta-label mt-2 tracking-widest uppercase opacity-80">Revitalize global partnerships</p></div></div>
+<div class="mt-12 flex overflow-x-auto no-scrollbar gap-6 pb-4 hidden">
+<div class="min-w-[280px] md:min-w-[320px] h-[300px] border-2 border-dashed border-white/40 flex flex-col items-center justify-center group/add cursor-pointer hover:bg-white/10 transition-colors bg-white/5 text-white">
+<span class="material-symbols-outlined text-5xl mb-4">add</span>
+<span class="font-headline font-bold text-lg">Contribute</span>
+<p class="font-body text-xs mt-2 opacity-70 uppercase tracking-widest">Add a design kit</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-24 px-margin-mobile md:px-margin-desktop flex flex-col gap-8 max-w-[1500px] mx-auto bg-surface border-t border-rule-hairline">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="max-w-md">
+<div class="font-headline text-headline font-bold text-primary mb-4">sdg.design</div>
+<p class="font-body text-sm text-secondary">A radical editorial repository for Sustainable Development Goal design systems and open-source implementation kits.</p>
+</div>
+<div class="grid grid-cols-2 gap-16">
+<div class="flex flex-col gap-4">
+<span class="font-meta-label text-meta-label text-on-secondary-container tracking-widest">EXPLORE</span>
+<a class="font-body text-sm text-secondary hover:underline" href="#">Design Kits</a>
+<a class="font-body text-sm text-secondary hover:underline" href="#">Documentation</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-meta-label text-meta-label text-on-secondary-container tracking-widest">LEGAL</span>
+<a class="font-body text-sm text-secondary hover:underline" href="#">Privacy Policy</a>
+<a class="font-body text-sm text-secondary hover:underline" href="#">Terms</a>
+</div>
+</div>
+</div>
+<div class="pt-12 border-t border-rule-hairline flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body text-secondary text-xs opacity-60">This site is not affiliated with the United Nations. All SDG icons are property of the UN.</p>
+</div>
+</footer>
+<script>
+    function toggleAccordion(element) {
+        const rows = document.querySelectorAll('.accordion-row');
+        const isCurrentlyExpanded = element.classList.contains('sdg-row-expanded');
+
+        // Reset all rows
+        rows.forEach(row => {
+            row.classList.remove('sdg-row-expanded');
+            row.classList.add('sdg-row-collapsed');
+            row.classList.add('cursor-pointer');
+            row.classList.remove('cursor-default');
+            
+            const content = row.querySelector('.mt-12');
+            if (content) content.classList.add('hidden');
+        });
+
+        // Toggle logic: If it wasn't expanded, open it. 
+        // If it WAS expanded, it's now collapsed (already handled by the reset above).
+        if (!isCurrentlyExpanded) {
+            element.classList.remove('sdg-row-collapsed');
+            element.classList.add('sdg-row-expanded');
+            element.classList.remove('cursor-pointer');
+            element.classList.add('cursor-default');
+            
+            const content = element.querySelector('.mt-12');
+            if (content) content.classList.remove('hidden');
+        }
+    }
+
+    // Initialize state
+    document.addEventListener('DOMContentLoaded', () => {
+        const expandedRow = document.querySelector('.sdg-row-expanded');
+        if (expandedRow) {
+            const content = expandedRow.querySelector('.mt-12');
+            if (content) content.classList.remove('hidden');
+        }
+    });
+</script>
+</body></html>
